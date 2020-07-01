@@ -1,0 +1,48 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+        <title>Company</title>
+        <style>
+                table, td, th {border:0.5px solid black; text-align: center;}
+        </style>
+</head>
+<body>
+        <h1>Welcome to my Company!</h1>
+        <p>You can search the employees by their salaries:</p>
+        <form action="search.php" method="post">
+                <input type="number" name="salary"  placeholder="Search by salary">
+                <input type="submit" name="search" value="Search"><br>
+        </form><br><br>
+
+
+        <p>Here you can insert new employees into the Database!</p><br>
+        <form action="insert.php" method="post">
+                Legit: <input type="number" name="id" style="margin-left:18px"><br/><br/>
+                First Name:<br/> <input type="text" name="firstname" style="margin-left:70px"><br/>
+		Last Name:<br/> <input type="text" name="lastname" style="margin-left:70px"><br/><br/>
+
+		Prefix: <select name="prefix">
+			<option value="+40">RO</option>
+			<option value="+44">EN</option>
+			<option value="+49">GE</option>
+			<option value="+33">FR</option>
+		</select>
+                Phone: <input type="text" name="phone" style="margin-left:12px" placeholder="FARA 0 , BA"><br/><br/>
+		Email: <input type="text" name="email" style="margin-left:15px"><br/><br/>
+                Salary: <input type="number" name="salary" style="margin-left:10px"><br><br>
+                <input type="submit" name="insertData" value="Insert Data" style="margin-left: 95px">
+        </form>
+	<br><br>
+
+        <p>You can filter the employees by criteria of salary:</p>
+        <form action="criteria.php" method="post">
+                <input type="number" name="low" placeholder="Low limit">
+                <input type="number" name="high" placeholder="High limit">
+		<input type="submit" name="select" value="Filter"><br>
+        </form><br><br>
+
+</body>
+</html>
