@@ -1,11 +1,5 @@
 <?php
-$link = mysqli_connect("localhost", "stefan", "qwer1234", "Company");
-
-// Check connection
-if($link === false){
-    die("ERROR: Could not connect. " . mysqli_connect_error());
-}
-
+require('db.php');
 // Escape user inputs for security
 $id = mysqli_real_escape_string($link, $_REQUEST['id']);
 $idclean = filter_var($id, FILTER_SANITIZE_NUMBER_INT, FILTER_FLAG_STRIP_HIGH);
@@ -96,7 +90,7 @@ if(isset($_POST['email']) && !empty($_POST['email'])){
 }
 
 
-$sql = "INSERT INTO Employees (LegitimationID,firstname,lastname, phone, email, salary) VALUES ('$idclean', '$fnameclean','$lnameclean','$phoneclean', '$emailclean', '$salaryclean')";
+$sql = "INSERT INTO employees (LegitimationID,firstname,lastname, phone, email, salary) VALUES ('$idclean', '$fnameclean','$lnameclean','$phoneclean', '$emailclean', '$salaryclean')";
 
 if(mysqli_query($link, $sql)){
     echo "Records added successfully.";

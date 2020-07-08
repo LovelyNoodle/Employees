@@ -4,9 +4,9 @@ require('db.php');
 
 if(isset($_POST['select']))
 {
-        $value1 = mysqli_real_escape_string($connect , $_REQUEST['low']);
+        $value1 = mysqli_real_escape_string($link , $_REQUEST['low']);
 	$value1clean=filter_var($value1 , FILTER_SANITIZE_NUMBER_INT , FILTER_FLAG_STRIP_HIGH);
-        $value2 = mysqli_real_escape_string($connect , $_REQUEST['high']);
+        $value2 = mysqli_real_escape_string($link , $_REQUEST['high']);
 	$value2clean=filter_var($value2 , FILTER_SANITIZE_NUMBER_INT , FILTER_FLAG_STRIP_HIGH);
 
 	if(preg_match('/^[0-9]{1,6}$/', $_REQUEST['low'])){
@@ -23,10 +23,10 @@ if(isset($_POST['select']))
 }
 	
 
-        $sqlfilter = "SELECT * FROM Employees WHERE salary >= '{$value1clean}' AND salary <= '{$value2clean}' ";
+        $sqlfilter = "SELECT * FROM employees WHERE salary >= '{$value1clean}' AND salary <= '{$value2clean}' ";
 }
 
-        $filterResult=mysqli_query($connect,$sqlfilter);
+        $filterResult=mysqli_query($link,$sqlfilter);
 
 
         echo "<table>";

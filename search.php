@@ -16,10 +16,10 @@ if(isset($_POST['search']))
 {
 
         $valueToSearch = $_POST['salary'];
-        $sqlfilter = "SELECT * FROM Employees WHERE salary='{$valueToSearch}'";
+        $sqlfilter = "SELECT * FROM employees WHERE salary='{$valueToSearch}'";
 }
 
-        $filterResult=mysqli_query($connect,$sqlfilter);
+        $filterResult=mysqli_query($link,$sqlfilter);
 
 
         echo "<table>";
