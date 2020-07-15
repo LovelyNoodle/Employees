@@ -1,49 +1,186 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html>
-<head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
-        <title>Company</title>
-        <style>
-                table, td, th {border:0.5px solid black; text-align: center;}
-        </style>
-</head>
-<body>
-        <h1>Welcome to my Company!</h1>
-        <p>You can search the employees by their salaries:</p>
-        <form action="search.php" method="post">
-                <input type="number" name="salary"  placeholder="Search by salary">
-                <input type="submit" name="search" value="Search"><br>
-        </form><br><br>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Libre+Baskerville&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Roboto&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://necolas.github.io/normalize.css/8.0.1/normalize.css"
+    />
+    <title>Company</title>
+    <style>
+      *,
+      ::after,
+      ::before {
+        box-sizing: border-box;
+        border: 0 solid #e2e8f0;
+      }
+      table,
+      td,
+      th {
+        border: 0.5px solid black;
+        text-align: center;
+      }
+      @media (min-width: 1024px) {
+        .container.container {
+          width: 960px;
+          margin: 1rem auto;
+        }
+      }
+      .shadow {
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+          0 2px 4px -1px rgba(0, 0, 0, 0.06);
+      }
+      .bg-blue-200 {
+        background: #cde0e4;
+      }
+      .bg-white {
+        background: #fff;
+      }
+      .p-4 {
+        padding: 1rem;
+      }
+      .m-4 {
+        margin: 1rem;
+      }
+      .rounded {
+        border-radius: 0.5rem;
+      }
+      .font-heading {
+        font-family: "Libre Baskerville";
+      }
+      .font-body {
+        font-family: Roboto;
+      }
+      .mr-4 {
+        margin-right: 1rem;
+      }
+      .mb-4 {
+        margin-bottom: 1rem;
+      }
+      .mb-1 {
+        margin-bottom: 0.25rem;
+      }
+      .mb-2 {
+        margin-bottom: 0.5rem;
+      }
+      .flex {
+        display: flex;
+      }
+      .form-button {
+        padding: 0.5rem 1rem;
+        margin-bottom: 0.5rem;
+        border-radius: 0.5rem;
+        color: blue;
+        border: solid 1px blue;
+        background: transparent;
+      }
+      .form-input {
+        appearance: none;
+        background-color: #fff;
+        border-color: #e2e8f0;
+        border-width: 1px;
+        border-radius: 0.25rem;
+        padding: 0.5rem 0.75rem;
+        font-size: 1rem;
+        line-height: 1.5;
+      }
+      .flex-col {
+        flex-direction: column;
+      }
+      .text-gray-800 {
+        color: #555;
+      }
+    </style>
+  </head>
+  <body class="bg-blue-200 font-body">
+    <div class="shadow bg-white m-4 p-4 rounded container">
+      <h1 class="font-heading">Welcome to my Company!</h1>
+      <label for="search" class="flex mb-4"
+        >You can search the employees by their salaries:</label
+      >
+      <form action="search.php" method="post" class="flex">
+        <input
+          id="search"
+          type="number"
+          name="salary"
+          placeholder="Search by salary"
+          class="form-input"
+        />
+        <button type="submit" name="search" class="form-button">
+          Search
+        </button>
+      </form>
 
+      <p>Here you can insert new employees into the Database!</p>
+      <form action="insert.php" method="post">
+        <label class="flex flex-col mb-4">
+          <p class="mb-2 text-gray-800">Legitimation ID:</p>
+          <input type="number" name="id" class="form-input" />
+        </label>
 
-        <p>Here you can insert new employees into the Database!</p><br>
-        <form action="insert.php" method="post">
-                Legit: <input type="number" name="id" style="margin-left:18px"><br/><br/>
-                First Name:<br/> <input type="text" name="firstname" style="margin-left:70px"><br/>
-		Last Name:<br/> <input type="text" name="lastname" style="margin-left:70px"><br/><br/>
+        <label class="flex flex-col mb-4">
+          <p class="mb-2 text-gray-800">First Name:</p>
+          <input type="text" name="firstname" class="form-input" />
+        </label>
 
-		Prefix: <select name="prefix">
-			<option value="+40">RO</option>
-			<option value="+44">EN</option>
-			<option value="+49">GE</option>
-			<option value="+33">FR</option>
-		</select>
-                Phone: <input type="text" name="phone" style="margin-left:12px" placeholder="FARA 0 , BA"><br/><br/>
-		Email: <input type="text" name="email" style="margin-left:15px"><br/><br/>
-                Salary: <input type="number" name="salary" style="margin-left:10px"><br><br>
-                <input type="submit" name="insertData" value="Insert Data" style="margin-left: 95px">
-                <button type="reset" name="reset Data">reset data</button>
-        </form>
-	<br><br>
+        <label class="flex flex-col mb-4">
+          <p class="mb-2 text-gray-800">Last Name:</p>
+          <input type="text" name="lastname" class="form-input" />
+        </label>
 
-        <p>You can filter the employees by criteria of salary:</p>
-        <form action="criteria.php" method="post">
-                <input type="number" name="low" placeholder="Low limit">
-                <input type="number" name="high" placeholder="High limit">
-		<input type="submit" name="select" value="Filter"><br>
-        </form><br><br>
+        <div class="flex">
+          <label class="flex flex-col mb-4 mr-4">
+            <p class="mb-2 text-gray-800">Prefix:</p>
+            <select name="prefix" class="form-input">
+              <option value="+40">RO</option>
+              <option value="+44">EN</option>
+              <option value="+49">GE</option>
+              <option value="+33">FR</option>
+            </select>
+          </label>
+          <label class="flex flex-col mb-4">
+            <p class="mb-2 text-gray-800">Phone:</p>
+            <input
+              class="form-input"
+              type="text"
+              name="phone"
+              placeholder="FARA 0 , BA"
+            />
+          </label>
+        </div>
 
-</body>
+        <label class="flex flex-col mb-4">
+          <p class="mb-2 text-gray-800">Email:</p>
+          <input type="text" name="email" class="form-input" />
+        </label>
+
+        <label class="flex flex-col mb-4">
+          <p class="mb-2 text-gray-800">Salary:</p>
+          <input type="number" name="salary" class="form-input" />
+        </label>
+
+        <button type="submit" class="form-button">Submit</button>
+        <button type="reset" class="form-button">Reset</button>
+      </form>
+      <br /><br />
+
+      <p>You can filter the employees by criteria of salary:</p>
+      <form action="criteria.php" method="post">
+        <input type="number" name="low" placeholder="Low limit" />
+        <input type="number" name="high" placeholder="High limit" />
+        <input type="submit" name="select" value="Filter" /><br />
+      </form>
+      <br /><br />
+    </div>
+  </body>
 </html>
