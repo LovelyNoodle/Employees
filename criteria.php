@@ -1,7 +1,6 @@
 <?php
 require('db.php');
 
-
 if(isset($_POST['select']))
 {
         $value1 = mysqli_real_escape_string($link , $_REQUEST['low']);

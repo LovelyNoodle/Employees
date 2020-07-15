@@ -1,14 +1,14 @@
 <?php
 
-$servername="localhost";
-$username="stefan";
-$password="qwer1234";
-$database="company"; // Company will be the database that we are goin to create it in mysql
-global $link;
-$link=new mysqli($servername,$username,$password,$database) or die("Failed to connect to mysql");
+require_once("vendor/autoload.php");
 
-// if (mysqli_connect_errno())
-// {
-//         echo "Failed to connect to MySQL: " . mysqli_connect_error();
-// }
-// ?>
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
+$dotenv->load();
+
+global $link;
+$link=new mysqli($_ENV["Server"],$_ENV["DB_Username"],$_ENV["DB_Password"],$_ENV["DB"]) or die("Failed to connect to mysql");
+if (mysqli_connect_errno())
+{
+        echo "Failed to connect to MySQL: " . mysqli_connect_error();
+}
+?>
